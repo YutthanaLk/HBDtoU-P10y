@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+  <meta charset="UTF-8" />
+  <title>ล็อคอินด้วยรหัสผ่าน</title>
+  <link rel="stylesheet" href="style1.css">
+
+</head>
+<body>
+  <h1>Hello Cutie</h1>
+  <h2>โปรดยืนยันวันเกิด</h2>
+  <input type="password" id="passwordInput" placeholder="ใส่วันเกิดของคุณ เช่น 1101" />
+  <button onclick="checkPassword()">เข้าใช้งาน</button>
+  <p id="message" style="color:red;"></p>
+
+  <!-- Overlay แสดงข้อความ -->
+  <div id="overlay">
+    <div id="randomText" class="random-word"></div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correctPassword = "1809"; // รหัสผ่านที่ตั้งไว้
+      const enteredPassword = document.getElementById("passwordInput").value;
+      const message = document.getElementById("message");
+
+      if (enteredPassword === correctPassword) {
+        showRandomWord();
+      } else {
+        message.textContent = "รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่";
+      }
+    }
+
+    function showRandomWord() {
+      const words = [
+        "I hope you like it.",
+        "Enjoy your time cutie.",
+        "Hope this make you smile.",
+      ];
+      const randomWord = words[Math.floor(Math.random() * words.length)];
+      const randomColor = `hsl(${Math.random() * 360}, 100%, 70%)`; // สุ่มสีทุกครั้ง
+
+      const randomText = document.getElementById("randomText");
+      randomText.textContent = randomWord;
+      randomText.style.color = randomColor;
+
+      const overlay = document.getElementById("overlay");
+      overlay.style.display = "flex";
+
+      // ให้ข้อความอยู่สัก 3 วินาที แล้วไปหน้าโปสเตอร์
+      setTimeout(() => {
+        window.location.href = "../2Postcard/poster.html"; // เปลี่ยนเป็น URL หน้าโปสเตอร์จริง
+      }, 3000);
+    }
+
+    // เพิ่มฟังก์ชันนี้เพื่อให้กด Enter แล้วเข้าสู่ระบบได้
+    document.getElementById("passwordInput").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        checkPassword();
+      }
+    });
+  </script>
+</body>
+</html>
