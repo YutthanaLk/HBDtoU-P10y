@@ -177,8 +177,8 @@ nav a:hover {
   top: 215px; /* ระยะห่างจากด้านบน */
   left: 225px; /* ระยะห่างจากด้านซ้าย */
   opacity: 0.25; /* ปรับค่าความโปร่งใส 0-1 ได้ตามต้องการ */
-  transition: opacity 0.3s;
-  color: #d84b6a; /* เปลี่ยนสีข้อความ */
+  transition: opacity 0.35s;
+  color: #ff0000; /* เปลี่ยนสีข้อความ */
   font-size: 0.7rem;
   
 }
